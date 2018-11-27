@@ -1,0 +1,23 @@
+.text-decoration-none,
+.text-decoration-none:hover {
+    text-decoration: none;
+}
+
+.story-title,
+.story-title:hover {
+    color: #ff6600;
+    border-bottom: 2px solid #313639;
+}
+
+.story-comments,
+.story-comments:hover {
+    color: #ff6600;
+    border-bottom: 2px solid #313639;
+}
+
+.different-stories-button {
+    color: #fff;
+    background-color: #ff6600;
+    border-color: #ff6600;
+    width: 7.5rem;
+}

@@ -1,23 +1,23 @@
-.text-decoration-none,
-.text-decoration-none:hover {
-    text-decoration: none;
+.bg-dark-grey {
+	background-color: #262626;
 }
 
-.story-title,
-.story-title:hover {
-    color: #ff6600;
-    border-bottom: 2px solid #313639;
+.bg-light-grey {
+	background-color: #303030;
 }
 
-.story-comments,
-.story-comments:hover {
-    color: #ff6600;
-    border-bottom: 2px solid #313639;
+.txt-white {
+	color: #fbfbfb;
 }
 
-.different-stories-button {
-    color: #fff;
-    background-color: #ff6600;
-    border-color: #ff6600;
-    width: 7.5rem;
+.txt-green {
+	color: #8dc2aa;
+}
+
+.txt-grey {
+	color: #9a9a9a;
+}
+
+a:hover, #more-stories:hover, #previous-stories:hover {
+	color: inherit;
 }

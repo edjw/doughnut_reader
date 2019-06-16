@@ -1,4 +1,6 @@
-async function getJSON(url) {
+/* eslint-disable no-console */
+
+async function convertApiResponseToJSON(url) {
    try {
       return await fetch(url).then(data => data.json());
    } catch (error) {
@@ -6,156 +8,101 @@ async function getJSON(url) {
    }
 }
 
-async function getTopHnIDs() {
-   const url = "https://hacker-news.firebaseio.com/v0/topstories.json";
-
-   // For testing
-   // const url = "for_testing_topstories.json";
-
-   return await getJSON(url);
+async function getApiResponse(pageNumber, url = `https://api.hackerwebapp.com/news?page=${pageNumber}`) {
+   return await convertApiResponseToJSON(url);
 }
 
-async function getStoryDetails(firstRequestedItemIndex, lastRequestedItemIndex) {
-   const topStories = await getTopHnIDs();
-   const allStoryDetails = [];
-   for (let storyID of topStories) {
-      const currentIndex = topStories.indexOf(storyID);
-
-      if (currentIndex == lastRequestedItemIndex) {
-         break
-      } else if (currentIndex >= firstRequestedItemIndex) {
-         const storyEndpoint = `https://hacker-news.firebaseio.com/v0/item/${storyID}.json`
-         const storyDetails = await getJSON(storyEndpoint);
-         allStoryDetails.push(storyDetails);
-      }
-   }
-   return allStoryDetails;
-
-}
-async function displayStories(firstRequestedItemIndex, lastRequestedItemIndex) {
-
-   const previousStoriesButton = document.getElementById("previous-stories");
-   // const moreStoriesButton = document.getElementById("more-stories");
-   const pageCounter = document.getElementById("page-counter");
-   pageCounter.classList.remove("d-none");
-
-   if (firstRequestedItemIndex == 0) {
-      pageCounter.classList.add("d-none");
-      previousStoriesButton.classList.add("d-none");
-   } else if (firstRequestedItemIndex >= 10) {
-      const pageNumber = (firstRequestedItemIndex / 10) + 1;
-      pageCounter.innerText = `${pageNumber} of 50`;
-      previousStoriesButton.classList.remove("d-none");
-   }
-
-   const storyDetails = await getStoryDetails(firstRequestedItemIndex, lastRequestedItemIndex);
-
-   const htmlContainer = document.getElementById("content");
-
-   let htmlToInsert = "";
-
-   const now = Date.now();
-   for (let story of storyDetails) {
-
-      const date = story.time * 1000;
-      const roughHoursAgo = Math.round((now - date) / 3600000);
-      let timeStamp = "";
-      if (roughHoursAgo >= 24) {
-         const daysAgo = Math.round(roughHoursAgo / 24);
-         if (daysAgo > 1) {
-            timeStamp += `${daysAgo} days`
-         } else if (daysAgo == 1) {
-            timeStamp += `${daysAgo} day`
-         }
-      } else if (roughHoursAgo > 1 && roughHoursAgo < 24) {
-         timeStamp += `${roughHoursAgo} hrs`;
-      } else if (roughHoursAgo <= 1) {
-         timeStamp += `${roughHoursAgo} hr`;
-      }
-
-      let numberOfComments = 0;
-      if (story.kids) {
-         numberOfComments = story.kids.length;
-      }
-
-      let score = 0;
-      if (story.score) {
-         score = story.score;
-      }
-      htmlToInsert += `
-
-		<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light">
-			<div class="order-2 order-md-1 offset-1 col-10 offset-md-1 col-md-2 pt-2 pb-2 text-left">
-				<div class="col pl-0">
-					<small><strong>${timeStamp} ago</strong></small>
-				</div>
-				<div class="col pl-0 border-top">
-					<small><strong>${score}</strong> ⭐</small>
-				</div>
-			</div>
-
-			<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
-				<a href=${story.url} class="lead font-weight-bold text-decoration-none story-title">
-					${story.title}
-				</a>
-				<br>
-				<small>
-            ${numberOfComments} comments // <a href="https://news.ycombinator.com/item?id=${story.id}" class="text-decoration-none story-comments">https://news.ycombinator.com/item?id=${story.id}</a>
-				</small>
-			</div>
-		</div>
-
-  	  `;
-
-   }
-   htmlContainer.innerHTML = htmlToInsert;
-   htmlContainer.classList.remove("d-none");
-   const moreStoryButtons = document.getElementById("more-stories");
-   moreStoryButtons.classList.remove("d-none");
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-
-   let firstRequestedItemIndex = 0;
-   let lastRequestedItemIndex = 10;
-
-   displayStories(firstRequestedItemIndex, lastRequestedItemIndex);
-
-   const moreStoriesButton = document.getElementById("more-stories");
-   const previousStoriesButton = document.getElementById("previous-stories");
-
-   moreStoriesButton.addEventListener("click", function () {
-      getDifferentStories(firstRequestedItemIndex, lastRequestedItemIndex, button = moreStoriesButton);
-   })
-
-   previousStoriesButton.addEventListener("click", function () {
-      getDifferentStories(firstRequestedItemIndex, lastRequestedItemIndex, button = previousStoriesButton);
-   })
-
-   function getDifferentStories() {
-      const htmlContainer = document.getElementById("content");
-      window.scrollTo(0, htmlContainer.offsetParent.offsetTop - 20);
-
-      htmlContainer.classList.add("d-none");
-
-      if (button.id == "more-stories") {
-         firstRequestedItemIndex += 10;
-         lastRequestedItemIndex += 10;
-         displayStories(firstRequestedItemIndex, lastRequestedItemIndex);
-
-      } else if (button.id == "previous-stories") {
-         firstRequestedItemIndex -= 10;
-         lastRequestedItemIndex -= 10;
-
-         displayStories(firstRequestedItemIndex, lastRequestedItemIndex);
-      }
-   }
-
-
-});
-// async function printPromise() {
-//    const promise = await //getTopHNIDs();
+// Print the API response
+// async function printJsonFromApi() {
+//    const promise = await getApiResponse();
 //    console.log(promise);
 // }
+// printJsonFromApi();
 
-// printPromise();
+async function createHTML(pageNumber) {
+   const apiResponse = await getApiResponse(pageNumber);
+   const htmlToAppend =
+      apiResponse.map(function (apiResponse) {
+
+         const insideHTML = `
+         <div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+            <div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+               <div class="col pl-0">
+                  <small><strong>${apiResponse["time_ago"]}</strong></small>
+               </div>
+               <div class="col pl-0 border-top">
+                  <small><strong>${apiResponse["points"]}</strong> ⭐</small>
+               </div>
+            </div>
+
+            <div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+               <a href=${apiResponse["url"]} class="lead font-weight-bold text-decoration-none txt-white">
+                  ${apiResponse["title"]}
+               </a>
+               <br>
+               <small class="txt-grey">
+                  ${apiResponse["comments_count"]} comments <span class="txt-white">//</span> <a href="https://news.ycombinator.com/item?id=${apiResponse["id"]}" class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=${apiResponse["id"]}</a>
+               </small>
+            </div>
+            </div>
+         </div>
+         `
+
+         return insideHTML;
+      }).join('');
+   return htmlToAppend;
+}
+
+async function insertHTML(pageNumber) {
+   const html = await createHTML(pageNumber);
+   const contentDiv = document.getElementById("content");
+   contentDiv.innerHTML = html;
+}
+
+
+// Page number state
+let pageNumber = 1;
+
+const moreStoriesButton = document.getElementById("more-stories");
+const previousStoriesButton = document.getElementById("previous-stories");
+
+moreStoriesButton.addEventListener("click", changePage);
+previousStoriesButton.addEventListener("click", changePage);
+
+function changePage() {
+   if (this.id == "more-stories") {
+      pageNumber += 1;
+   }
+   else {
+      pageNumber -= 1;
+   }
+   insertHTML(pageNumber);
+   updatePageNumber()
+   scrolltoListTop()
+   hidePreviousStoriesButton();
+}
+
+function scrolltoListTop() {
+   const listTopHeight = document.getElementById("content").offsetTop;
+   const doublelistTopHeight = listTopHeight * 2;
+   window.scrollTo(0, doublelistTopHeight);
+}
+
+function updatePageNumber() {
+   const pageNumberText = document.getElementById("page-number");
+   pageNumberText.textContent = pageNumber;
+}
+
+function hidePreviousStoriesButton() {
+   const pageNumber = document.getElementById("page-number").textContent;
+   const previousStoriesButton = document.getElementById("previous-stories");
+
+   if (pageNumber > 1) {
+      previousStoriesButton.classList.remove("d-none");
+   }
+   else {
+      previousStoriesButton.classList.add("d-none");
+   }
+}
+
+insertHTML(pageNumber);

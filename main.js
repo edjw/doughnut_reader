@@ -53,23 +53,22 @@ async function createHTML(pageNumber) {
    return htmlToAppend;
 }
 
+
 async function insertHTML(pageNumber) {
    const html = await createHTML(pageNumber);
    const contentDiv = document.getElementById("content");
    contentDiv.innerHTML = html;
-   const moreStoriesButton = document.getElementById("more-stories");
-   moreStoriesButton.classList.remove("d-none");
+   const moreStoriesButtons = Array.from(document.getElementsByClassName("more-stories-button"));
+   moreStoriesButtons.forEach(button => button.classList.remove("d-none"));
 }
 
 
 // Page number state
 let pageNumber = 1;
+//
 
-const moreStoriesButton = document.getElementById("more-stories");
-const previousStoriesButton = document.getElementById("previous-stories");
-
-moreStoriesButton.addEventListener("click", changePage);
-previousStoriesButton.addEventListener("click", changePage);
+const allButtons = Array.from(document.getElementsByClassName("btn"));
+allButtons.forEach(button => button.addEventListener("click", changePage));
 
 function changePage() {
    if (this.id == "more-stories") {
@@ -80,15 +79,16 @@ function changePage() {
    }
    insertHTML(pageNumber);
    updatePageNumber()
-   scrolltoListTop()
+   // scrolltoListTop()
    hidePreviousStoriesButton();
 }
 
-function scrolltoListTop() {
-   const listTopHeight = document.getElementById("content").offsetTop;
-   const doublelistTopHeight = listTopHeight * 2;
-   window.scrollTo(0, doublelistTopHeight);
-}
+// function scrolltoListTop() {
+//    // const listTopHeight = document.getElementById("content").offsetTop;
+//    // const doublelistTopHeight = listTopHeight * 2;
+//    // window.scrollTo(0, doublelistTopHeight);
+//    window.scrollTo(0, 0);
+// }
 
 function updatePageNumber() {
    const pageNumberText = document.getElementById("page-number");
@@ -97,13 +97,13 @@ function updatePageNumber() {
 
 function hidePreviousStoriesButton() {
    const pageNumber = document.getElementById("page-number").textContent;
-   const previousStoriesButton = document.getElementById("previous-stories");
+   const previousStoriesButtons = Array.from(document.getElementsByClassName("previous-stories-button"));
 
    if (pageNumber > 1) {
-      previousStoriesButton.classList.remove("d-none");
+      previousStoriesButtons.forEach(button => button.classList.remove("d-none"))
    }
    else {
-      previousStoriesButton.classList.add("d-none");
+      previousStoriesButtons.forEach(button => button.classList.add("d-none"))
    }
 }
 

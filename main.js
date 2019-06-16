@@ -57,6 +57,8 @@ async function insertHTML(pageNumber) {
    const html = await createHTML(pageNumber);
    const contentDiv = document.getElementById("content");
    contentDiv.innerHTML = html;
+   const moreStoriesButton = document.getElementById("more-stories");
+   moreStoriesButton.classList.remove("d-none");
 }
 
 

@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>🍩 Doughnut Reader 🍩</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+	<link rel="stylesheet" type="text/css" media="screen" href="main.css">
+	<style class="__css_exfil_protection_filtered_styles"></style>
+</head>
+
+<body class="bg-dark-grey txt-white">
+
+	<main class="mb-4">
+		<div class="container">
+			<div class="row mt-3 justify-content-center">
+				<div class="col-12 col-md-8 d-flex justify-content-center">
+					<a href="/" class="text-decoration-none">
+						<h1 class="h2 txt-white">🍩 Doug<u>hn</u>ut Reader 🍩</h1>
+					</a>
+				</div>
+			</div>
+
+			<div class="row mt-3 justify-content-center">
+				<div class="col-12 col-md-9">
+
+					<div class="row justify-content-center">
+						<div class="col-8 d-flex justify-content-center">
+							<p class="txt-white">
+								Page <span class="page-number">1</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="row mb-3 justify-content-center">
+						<div class="col-6 col-md-3 d-flex justify-content-center">
+							<button type="button"
+								class="previous-stories-button d-none btn btn-lg mb-4 txt-white bg-light-grey border"
+								id="previous-stories">← Previous</button>
+						</div>
+						<div class="col-6 col-md-3 d-flex justify-content-center">
+							<button type="button"
+								class="more-stories-button btn btn-lg mb-4 txt-white bg-light-grey border"
+								id="more-stories">Next →</button>
+						</div>
+					</div>
+
+					<div id="content">
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>3 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>171</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://every-layout.dev/"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Relearn CSS layout
+								</a>
+								<br>
+								<small class="txt-grey">
+									32 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20196061"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20196061</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>4 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>120</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://project.inria.fr/paiss/files/2018/07/zisserman-self-supervised.pdf"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Google DeepMind: Self-Supervised Learning [pdf]
+								</a>
+								<br>
+								<small class="txt-grey">
+									22 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20195575"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20195575</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>3 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>43</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://github.com/ultralisp/ultralisp"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Ultralisp: A Descentralized Common Lisp Repository
+								</a>
+								<br>
+								<small class="txt-grey">
+									5 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20196027"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20196027</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>2 days ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>159</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.sciencemag.org/news/2019/06/psychologist-explains-why-people-confess-crimes-they-didn-t-commit"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Why people confess to crimes they didn’t commit
+								</a>
+								<br>
+								<small class="txt-grey">
+									84 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20182282"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20182282</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>27 minutes ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>14</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.city-journal.org/opiods-homelessness-west-coast"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									An Addiction Crisis Disguised as a Housing Crisis
+								</a>
+								<br>
+								<small class="txt-grey">
+									3 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20197045"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20197045</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>6 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>108</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.openmandriva.org/en/news/article/the-best-until-openmandriva-does-better-released-omlx-4-0"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									OpenMandriva Lx 4 is released as the first Clang-built Linux distribution
+								</a>
+								<br>
+								<small class="txt-grey">
+									70 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20195155"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20195155</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>3 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>22</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://public-blog.nrc-gateway.gov/2016/06/03/too-cheap-to-meter-a-history-of-the-phrase/"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									“Too Cheap to Meter”: A History of the Phrase (2016)
+								</a>
+								<br>
+								<small class="txt-grey">
+									11 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20196039"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20196039</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>5 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>37</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://blogs.scientificamerican.com/extinction-countdown/why-dont-we-hear-about-more-species-going-extinct/"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Why Don't We Hear About More Species Going Extinct?
+								</a>
+								<br>
+								<small class="txt-grey">
+									12 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20195484"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20195484</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>2 days ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>14</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.economist.com/science-and-technology/2019/06/15/a-new-business-in-small-satellites-orbiting-the-earth"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									A new business in small satellites orbiting the Earth
+								</a>
+								<br>
+								<small class="txt-grey">
+									2 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20184421"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20184421</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>4 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>27</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://github.com/plops/cl-cpp-generator"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Cl-cpp-generator: a Common Lisp library to generate c/C++ code
+								</a>
+								<br>
+								<small class="txt-grey">
+									1 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20195740"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20195740</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>2 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>255</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.bloomberg.com/news/articles/2019-06-16/protests-swell-as-hong-kong-rejects-leader-s-compromise"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									About 2M People Rally in Hong Kong Weekend Protests
+								</a>
+								<br>
+								<small class="txt-grey">
+									110 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20196271"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20196271</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>15 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>7</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://academic.oup.com/ahr/article/124/3/983/5509740?guestAccessKey=482804d3-9218-4a7e-962e-155f7c542ecc"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Frantz Fanon and the CIA Man
+								</a>
+								<br>
+								<small class="txt-grey">
+									1 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20193818"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20193818</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>2 days ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>66</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.youtube.com/watch?v=lunJmMBkqLo"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									A Race of Two Compilers: GraalVM JIT versus HotSpot JIT C2 [video]
+								</a>
+								<br>
+								<small class="txt-grey">
+									25 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20182417"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20182417</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>2 days ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>25</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://blogs.bl.uk/digitisedmanuscripts/2019/06/gildas.html"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									The Ruin of Britain
+								</a>
+								<br>
+								<small class="txt-grey">
+									7 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20182266"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20182266</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>15 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>218</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://jasonlefkowitz.net/2017/05/people-met-in-hotel-lobbies/"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									People Met in Hotel Lobbies (2017)
+								</a>
+								<br>
+								<small class="txt-grey">
+									59 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20193786"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20193786</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>8 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>62</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.wsj.com/articles/lyrics-site-genius-com-accuses-google-of-lifting-its-content-11560677400"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Lyrics Site Genius.com Accuses Google of Lifting Its Content
+								</a>
+								<br>
+								<small class="txt-grey">
+									50 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20194952"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20194952</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>14 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>119</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.nytimes.com/2019/06/12/well/move/pushing-the-limits-of-human-endurance.html"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									When we work out rigorously, our bodies limit our ability to expend energy
+								</a>
+								<br>
+								<small class="txt-grey">
+									56 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20193943"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20193943</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>5 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>83</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://developer.apple.com/videos/play/wwdc2019/613/"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Ray Tracing with Metal [video]
+								</a>
+								<br>
+								<small class="txt-grey">
+									74 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20195310"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20195310</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>5 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>15</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.damninteresting.com/project-babylon-gerald-bulls-downfall/"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Project Babylon: Gerald Bull’s Downfall (2006)
+								</a>
+								<br>
+								<small class="txt-grey">
+									5 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20195504"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20195504</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>3 days ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>73</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="http://www.bbc.com/future/story/20190610-how-modern-life-is-transforming-the-human-skeleton"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									How modern life is transforming the human skeleton
+								</a>
+								<br>
+								<small class="txt-grey">
+									3 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20173830"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20173830</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>2 days ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>124</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://ncase.me/anxiety-demo/"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Anxiety: An Interactive Story
+								</a>
+								<br>
+								<small class="txt-grey">
+									23 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20186307"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20186307</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>20 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>668</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="http://thume.ca/2019/04/29/comparing-compilers-in-rust-haskell-c-and-python/"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Comparing the Same Project in Rust, Haskell, C++, Python, Scala and OCaml
+								</a>
+								<br>
+								<small class="txt-grey">
+									329 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20192645"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20192645</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>10 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>35</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://writing.kemitchell.com/2019/06/15/Industry-Environment.html"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Operating Environment: essential industry background for open software licenses
+								</a>
+								<br>
+								<small class="txt-grey">
+									3 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20194573"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20194573</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>18 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>643</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://apolloinrealtime.org/11/"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Apollo 11 in Real Time
+								</a>
+								<br>
+								<small class="txt-grey">
+									103 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20193118"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20193118</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>2 days ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>19</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.washingtonpost.com/entertainment/books/how-aladdin-came-to-be-thank-or-blame-an-18th-century-french-scholar/2019/06/11/07ac1b76-8c5c-11e9-8f69-a2795fca3343_story.html"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									How ‘Aladdin’ Came to Be
+								</a>
+								<br>
+								<small class="txt-grey">
+									8 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20184647"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20184647</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>5 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>66</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://qz.com/1642691/richard-baldwin-on-the-inhumanely-fast-next-phase-of-globalization/"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Richard Baldwin on the “inhumanely fast” next phase of globalization
+								</a>
+								<br>
+								<small class="txt-grey">
+									49 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20195421"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20195421</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>3 days ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>46</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.laphamsquarterly.org/trade/timeless-life-grand-bazaar"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Timeless Life in the Grand Bazaar: The Rise and Fall of Turkey’s Marketplace
+								</a>
+								<br>
+								<small class="txt-grey">
+									0 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20179263"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20179263</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>8 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>26</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.youtube.com/watch?v=1A-Nf3QIJjM"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Cat Door That Locks Itself When Cat Has Prey in Their Mouth [video]
+								</a>
+								<br>
+								<small class="txt-grey">
+									10 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20194838"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20194838</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>5 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>15</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.knowablemagazine.org/article/living-world/2019/saccades-lifes-blur-we-dont-see-it-way"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Life’s a blur – but we don’t see it that way
+								</a>
+								<br>
+								<small class="txt-grey">
+									3 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20195352"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20195352</a>
+								</small>
+							</div>
+						</div>
+
+
+						<div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
+							<div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
+								<div class="col pl-0">
+									<small><strong>3 hours ago</strong></small>
+								</div>
+								<div class="col pl-0 border-top">
+									<small><strong>44</strong> ⭐</small>
+								</div>
+							</div>
+
+							<div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
+								<a href="https://www.bloomberg.com/news/articles/2019-06-13/world-s-retirees-risk-running-out-of-money-a-decade-before-death"
+									class="lead font-weight-bold text-decoration-none txt-white">
+									Retirees Might Run Out of Money 10 Years Before They Die
+								</a>
+								<br>
+								<small class="txt-grey">
+									46 comments <span class="txt-white">//</span> <a
+										href="https://news.ycombinator.com/item?id=20195993"
+										class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=20195993</a>
+								</small>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row justify-content-center">
+						<div class="col-8 d-flex justify-content-center">
+							<p class="txt-white">
+								Page <span class="page-number">1</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="row mb-3 justify-content-center">
+						<div class="col-6 col-md-3 d-flex justify-content-center">
+							<button type="button"
+								class="previous-stories-button d-none btn btn-lg mb-4 txt-white bg-light-grey border"
+								id="previous-stories">← Previous</button>
+						</div>
+						<div class="col-6 col-md-3 d-flex justify-content-center">
+							<button type="button"
+								class="more-stories-button btn btn-lg mb-4 txt-white bg-light-grey border"
+								id="more-stories">Next →</button>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<div class="container">
+			<div class="row mt-4 mb-4">
+				<div class="col-11 offset-1 col-10 col-md-3 offset-md-2">
+					<p>
+						By <a href="https://twitter.com/_edjw" class="txt-white">Ed Johnson-Williams</a>
+					</p>
+					<p>
+						<a href="https://github.com/edjw/hacker_news_reader" class="txt-white">Source on Github</a>
+					</p>
+				</div>
+
+				<div class="col-11 offset-1 col-md-4 mt-4 mt-md-0">
+					<p class="txt-md-right">
+						Builds on top of Lim Chee Aun's <a href="https://github.com/cheeaun/node-hnapi"
+							class="txt-white">Unofficial
+							Hacker News API</a>.
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+
+
+	<script src="main.js"></script>
+
+
+
+</body>
+
+</html>

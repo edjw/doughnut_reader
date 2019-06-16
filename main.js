@@ -79,31 +79,31 @@ function changePage() {
    }
    insertHTML(pageNumber);
    updatePageNumber()
-   // scrolltoListTop()
+   scrolltoListTop()
    hidePreviousStoriesButton();
 }
 
-// function scrolltoListTop() {
+function scrolltoListTop() {
 //    // const listTopHeight = document.getElementById("content").offsetTop;
 //    // const doublelistTopHeight = listTopHeight * 2;
 //    // window.scrollTo(0, doublelistTopHeight);
-//    window.scrollTo(0, 0);
-// }
+   window.scrollTo(0, 0);
+}
 
 function updatePageNumber() {
-   const pageNumberText = document.getElementById("page-number");
-   pageNumberText.textContent = pageNumber;
+   const pageNumberText = Array.from(document.getElementsByClassName("page-number"));
+   pageNumberText.forEach(number => number.textContent = pageNumber);
 }
 
 function hidePreviousStoriesButton() {
-   const pageNumber = document.getElementById("page-number").textContent;
+   const pageNumber = document.getElementsByClassName("page-number")[0].textContent;
    const previousStoriesButtons = Array.from(document.getElementsByClassName("previous-stories-button"));
 
    if (pageNumber > 1) {
-      previousStoriesButtons.forEach(button => button.classList.remove("d-none"))
+      previousStoriesButtons.forEach(button => button.classList.remove("d-none"));
    }
    else {
-      previousStoriesButtons.forEach(button => button.classList.add("d-none"))
+      previousStoriesButtons.forEach(button => button.classList.add("d-none"));
    }
 }
 

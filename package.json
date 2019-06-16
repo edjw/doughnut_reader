@@ -1,0 +1,11 @@
+{
+  "name": "hacker_news_reader",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:edjw/hacker_news_reader.git",
+  "author": "Ed Johnson-Williams <ed@johnsonwilliams.co.uk>",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^5.16.0"
+  }
+}

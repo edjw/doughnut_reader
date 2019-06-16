@@ -53,15 +53,11 @@ async function createHTML(pageNumber) {
    return htmlToAppend;
 }
 
-
 async function insertHTML(pageNumber) {
    const html = await createHTML(pageNumber);
    const contentDiv = document.getElementById("content");
    contentDiv.innerHTML = html;
-   const moreStoriesButtons = Array.from(document.getElementsByClassName("more-stories-button"));
-   moreStoriesButtons.forEach(button => button.classList.remove("d-none"));
 }
-
 
 // Page number state
 let pageNumber = 1;
@@ -84,9 +80,9 @@ function changePage() {
 }
 
 function scrolltoListTop() {
-//    // const listTopHeight = document.getElementById("content").offsetTop;
-//    // const doublelistTopHeight = listTopHeight * 2;
-//    // window.scrollTo(0, doublelistTopHeight);
+   //    // const listTopHeight = document.getElementById("content").offsetTop;
+   //    // const doublelistTopHeight = listTopHeight * 2;
+   //    // window.scrollTo(0, doublelistTopHeight);
    window.scrollTo(0, 0);
 }
 
@@ -107,4 +103,15 @@ function hidePreviousStoriesButton() {
    }
 }
 
-insertHTML(pageNumber);
+document.addEventListener("DOMContentLoaded", function () {
+   insertHTML(pageNumber);
+})
+
+window.addEventListener("load", function () {
+   const moreStoriesButtons = Array.from(document.getElementsByClassName("more-stories-button"));
+   moreStoriesButtons.forEach(button => button.classList.remove("d-none"));
+   const pageCounters = Array.from(document.getElementsByClassName("page-counter"));
+   pageCounters.forEach(button => button.classList.remove("d-none"));
+   const footer = document.getElementsByTagName("footer")[0];
+   footer.classList.remove("d-none");
+})

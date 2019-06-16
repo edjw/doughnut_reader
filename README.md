@@ -1,11 +1,13 @@
-# Ed's Hacker News Reader
+# Doug<u>hn</u>ut Reader
 
-Quick HN reader to practise some Javascript and fetching APIs in JS.
+[https://doughnut-reader.netlify.com](https://doughnut-reader.netlify.com)
 
-[https://eds-hn-reader.netlify.com](https://eds-hn-reader.netlify.com)
+A lightweight Hacker News Reader with a dark theme.
 
-Builds on top of Lim Chee Aun's [Unofficial Hacker News API](https://github.com/cheeaun/node-hnapi/).
+Completely with client-side Javascript
+
+Built on top of Lim Chee Aun's [Unofficial Hacker News API](https://github.com/cheeaun/node-hnapi).
 
 
 ## License
-Licensed under [the MIT License]().
+Licensed under [the MIT License](https://choosealicense.com/licenses/mit).

@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>🍩 Doughnut Reader 🍩</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
     <link rel="icon" type="image/png" sizes="252x252" href="/images/favicons/favicon.png">
@@ -16,6 +16,26 @@
 </head>
 
 <body class="bg-dark-grey txt-white">
+
+    <!-- Modal -->
+    <div id="modal" class="d-none">
+        <div id="overlay"></div>
+
+        <div id="modal_content" class="">
+
+            <!-- Dynamic Section -->
+            <h2><a href="" id="titleComments" class="txt-white"></a></h2>
+            <!-- <p id="commentsCount"></p> -->
+            <div id="commentsMainContent" class=""></div>
+            <!-- End of Dynamic Section -->
+
+            <button title="Close" id="close_modal">
+                <span>╳</span>
+            </button>
+        </div>
+    </div>
+    <!-- End Modal -->
+
 
     <main class="mb-4">
         <div class="container">
@@ -40,12 +60,12 @@
                     <div class="row mb-3 justify-content-center">
                         <div class="col-6 col-md-3 d-flex justify-content-center">
                             <button type="button"
-                                class="previous-stories-button d-none btn btn-lg mb-4 txt-white bg-light-grey border"
+                                class="previous-stories-button change-page-button d-none btn btn-lg mb-4 txt-white bg-light-grey border"
                                 id="previous-stories">← Previous</button>
                         </div>
                         <div class="col-6 col-md-3 d-flex justify-content-center">
                             <button type="button"
-                                class="more-stories-button d-none btn btn-lg mb-4 txt-white bg-light-grey border"
+                                class="more-stories-button change-page-button d-none btn btn-lg mb-4 txt-white bg-light-grey border"
                                 id="more-stories">Next →</button>
                         </div>
                     </div>
@@ -64,12 +84,12 @@
                     <div class="row mb-3 justify-content-center">
                         <div class="col-6 col-md-3 d-flex justify-content-center">
                             <button type="button"
-                                class="previous-stories-button d-none btn btn-lg mb-4 txt-white bg-light-grey border"
+                                class="previous-stories-button change-page-button d-none btn btn-lg mb-4 txt-white bg-light-grey border"
                                 id="previous-stories">← Previous</button>
                         </div>
                         <div class="col-6 col-md-3 d-flex justify-content-center">
                             <button type="button"
-                                class="more-stories-button d-none btn btn-lg mb-4 txt-white bg-light-grey border"
+                                class="more-stories-button change-page-button d-none btn btn-lg mb-4 txt-white bg-light-grey border"
                                 id="more-stories">Next →</button>
                         </div>
                     </div>
@@ -104,8 +124,9 @@
         </div>
     </footer>
 
-
+    <!-- <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/flattenDeep.js" integrity="sha256-wkX0BQYeEVDzeP8pdTDpMpcLqFPfwbsjCl+K+Rn/sDY=" crossorigin="anonymous"></script> -->
     <script src="main.js"></script>
+    <script src="modal.js"></script>
 
 </body>
 

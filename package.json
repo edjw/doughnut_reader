@@ -5,6 +5,7 @@
   "author": "Ed Johnson-Williams",
   "license": "MIT",
   "dependencies": {
-    "eslint": "^5.16.0"
+    "eslint": "^5.16.0",
+    "lodash.flattendeep": "^4.4.0"
   }
 }

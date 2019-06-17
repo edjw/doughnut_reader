@@ -40,3 +40,7 @@ a:hover, #more-stories:hover, #previous-stories:hover {
 .previous-stories-button, .more-stories-button {
 	width: 150px;
 }
+
+#content {
+	min-height: 100vh;
+}

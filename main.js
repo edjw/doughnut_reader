@@ -46,6 +46,11 @@ async function createHTML(pageNumber) {
                <!-- ${apiResponse["comments_count"]} comments <span class="txt-white">//</span>
                   <a href="https://news.ycombinator.com/item?id=${apiResponse["id"]}" class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=${apiResponse["id"]}</a> -->
 
+               <small>
+                  <a href="${apiResponse["url"]}" class="txt-grey">${apiResponse["url"]}</a>
+               </small>
+               <br>
+
                <button class="modal_opener btn btn-link bg-light-grey txt-grey pl-0" id="${apiResponse["id"]}">See ${apiResponse["comments_count"]} Comments</button>
 
                <!-- </small> -->

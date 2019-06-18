@@ -15,9 +15,15 @@ function toggleModal() {
 	if (currentVisibility.contains("d-none")) {
 		currentVisibility.remove("d-none");
 		attachModalListeners();
+		removeModalContent();
 	}
 	else {
 		currentVisibility.add("d-none");
 		detachModalListeners();
 	}
+}
+
+function removeModalContent (){
+	const modalContent = document.getElementById("commentsMainContent");
+	modalContent.innerHTML = "";
 }

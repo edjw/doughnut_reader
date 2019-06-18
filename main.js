@@ -135,39 +135,35 @@ async function getCommentsJSON(event) {
 }
 
 async function insertComments(event) {
-   const apiResponse = await getCommentsJSON(event);
-   // const title = apiResponse["title"];
-   // const url = apiResponse["url"];
-   // const commentCount = apiResponse["comments_count"];
-   const commentsObject = apiResponse["comments"];
-   let topLevelComments = "";
+   const apiCommentsResponse = await getCommentsJSON(event);
 
-   commentsObject.forEach(function (comment) {
-      const user = `${comment["user"]}`;
-      const time_ago = `🕔 ${comment["time_ago"]}`;
-      const commentContent = `${comment["content"]}`;
-      const allText = `
-      <div class="bg-dark-grey p-2 my-5">
-         <p>${user} –– ${time_ago}</p>
-         <div class="bg-light-grey p-4">
-            ${commentContent}
-         </div>
-       </div>
-      `;
-      topLevelComments += allText;
-   })
+   const firstLayerComments = apiCommentsResponse["comments"];
 
-   // const titleHTML = document.getElementById("titleComments");
-   // titleHTML.innerText = title;
-   // titleHTML.setAttribute("href", url)
+   const htmlToAppend =
+      firstLayerComments.map(function (firstLayerComments) {
+         const firstLevelUser = `${firstLayerComments["user"]}`;
+         const firstLeveltime_ago = `🕔 ${firstLayerComments["time_ago"]}`;
+         const firstLevelcommentContent = `${firstLayerComments["content"]}`;
 
-   // const commentsCountHTML = document.getElementById("commentsCount");
-   // commentsCountHTML.innerText = `${commentCount} comments`;
+         const secondLayerComments = firstLayerComments["comments"]
+         console.log(secondLayerComments)
+
+
+         const insideHTML = `
+         <div class="first-level-comment bg-dark-grey p-2 my-5">
+            <p>${firstLevelUser} –– ${firstLeveltime_ago}</p>
+            <div class="bg-light-grey p-4">
+               ${firstLevelcommentContent}
+            </div>
+          </div>
+
+         `;
+         return insideHTML;
+      }).join('');
 
    const commentsHTML = document.getElementById("commentsMainContent");
-   commentsHTML.innerHTML = topLevelComments;
+   commentsHTML.innerHTML = htmlToAppend;
 }
-
 
 // Print the API response
 // async function printJsonFromApi() {

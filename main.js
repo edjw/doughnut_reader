@@ -146,7 +146,7 @@ async function insertComments(event) {
          const firstLevelcommentContent = `${firstLayerComments["content"]}`;
 
          const secondLayerComments = firstLayerComments["comments"]
-         console.log(secondLayerComments)
+         console.log(secondLayerComments);
 
 
          const insideHTML = `

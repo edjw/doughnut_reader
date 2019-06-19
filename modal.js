@@ -11,13 +11,16 @@ function detachModalListeners() {
 function toggleModal() {
 
 	const currentVisibility = document.getElementById("modal").classList;
+	const mainLayerClasses = document.getElementById("main").classList;
 
 	if (currentVisibility.contains("d-none")) {
 		currentVisibility.remove("d-none");
+		mainLayerClasses.add("position-fixed")
 		attachModalListeners();
 	}
 	else {
 		currentVisibility.add("d-none");
+		mainLayerClasses.remove("position-fixed")
 		detachModalListeners();
 	}
 }

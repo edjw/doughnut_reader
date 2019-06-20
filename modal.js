@@ -1,7 +1,7 @@
 function escapeModal() {
 	const currentVisibility = document.getElementById("modal").classList;
 	document.addEventListener("keydown", function (e) {
-		if (e.key === "Escape" && currentVisibility.contains("d-none") == false {
+		if (e.key === "Escape" && currentVisibility.contains("d-none") == false) {
 			toggleModal();
 		}
 	})

@@ -20,9 +20,20 @@ async function getApiResponse(pageNumber, url = `https://api.hackerwebapp.com/ne
 // printJsonFromApi();
 
 async function createHTML(pageNumber) {
-   const apiResponse = await getApiResponse(pageNumber);
+   const fullApiResponse = await getApiResponse(pageNumber);
    const htmlToAppend =
-      apiResponse.map(function (apiResponse) {
+      fullApiResponse.map(function (apiResponse) {
+
+         let commentsButton = `<p class="txt-grey py-1 mb-0">No comments</p>`;
+         if (apiResponse["comments_count"] > 0) {
+            commentsButton = `<button class="modal_opener btn btn-link bg-light-grey txt-white pl-0" id="${apiResponse["id"]}">See ${apiResponse["comments_count"]} Comments</button>`;
+         }
+
+         let score = `0`;
+
+         if (apiResponse["points"] > 0) {
+            score = apiResponse["points"];
+         }
 
          const insideHTML = `
          <div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
@@ -31,7 +42,7 @@ async function createHTML(pageNumber) {
                   <a href="https://news.ycombinator.com/item?id=${apiResponse["id"]}" class="txt-white"><small><strong>${apiResponse["time_ago"]}</strong></small></a>
                </div>
                <div class="col pl-0 pt-2 border-top">
-                  <small><strong>${apiResponse["points"]}</strong> ⭐</small>
+                  <small><strong>${score}</strong> ⭐</small>
                </div>
             </div>
 
@@ -41,24 +52,19 @@ async function createHTML(pageNumber) {
                </a>
                <br>
 
-               <!-- <small class="txt-grey"> -->
-
-               <!-- ${apiResponse["comments_count"]} comments <span class="txt-white">//</span>
-                  <a href="https://news.ycombinator.com/item?id=${apiResponse["id"]}" class="text-decoration-none txt-grey">https://news.ycombinator.com/item?id=${apiResponse["id"]}</a> -->
-
                <small>
                   <a href="${apiResponse["url"]}" class="txt-grey">${apiResponse["url"]}</a>
                </small>
                <br>
 
-               <button class="modal_opener btn btn-link bg-light-grey txt-grey pl-0" id="${apiResponse["id"]}">See ${apiResponse["comments_count"]} Comments</button>
-
-               <!-- </small> -->
+               <div class="mt-2">
+                  ${commentsButton}
+               </div>
 
             </div>
 
          </div>
-         `
+         `;
 
          return insideHTML;
       }).join('');
@@ -120,6 +126,8 @@ window.addEventListener("load", function () {
    footer.classList.remove("d-none");
 })
 
+
+
 // Page number state
 let pageNumber = 1;
 
@@ -130,7 +138,6 @@ allButtons.forEach(button => button.addEventListener("click", changePage));
 // Fetching comments for modals
 function toggleModal_and_getComments(event) {
    toggleModal();
-   // printJsonFromApi(event)
    insertComments(event);
 }
 async function getCommentsJSON(event) {
@@ -142,17 +149,34 @@ async function getCommentsJSON(event) {
 async function insertComments(event) {
    const apiResponse = await getCommentsJSON(event);
 
-   const commentsObject = apiResponse["comments"];
-   console.log(commentsObject)
-   let topLevelComments = "";
+   const currentCommentLevel = 0
+   function findAllComments() {
+      if (apiResponse["comments"]) {
+         const commentsObject = apiResponse["comments"];
+      }
+   }
 
-   const allText = commentsObject.map(function (commentsObject) {
 
-      const user = `${commentsObject["user"]}`;
-      const time_ago = `🕔 ${commentsObject["time_ago"]}`;
-      const commentContent = `${commentsObject["content"]}`;
+   const allText = commentsObject.map(function (commentObject) {
+      // console.log(commentObject)
+
+      const user = `${commentObject["user"]}`;
+      const time_ago = `🕔 ${commentObject["time_ago"]}`;
+      const commentContent = `${commentObject["content"]}`;
+      const level = `${commentObject["level"]}`;
+
+      // console.log(commentObject["comments"].length)
+
+      if (commentObject["comments"].length > 0) {
+         const lowerComments = commentObject["comments"].map(function (lowerComment) {
+            console.log(lowerComment);
+            // return lowerComments;
+         }).join(" ");
+      }
+
+
       const allText = `
-      <div class="bg-dark-grey p-2 my-5">
+      <div class="bg-dark-grey p-2 my-5 level-${level}">
          <p>${user} –– ${time_ago}</p>
          <div class="bg-light-grey p-4">
             ${commentContent}
@@ -161,10 +185,9 @@ async function insertComments(event) {
       `
       return allText;
    }).join(" ");
-   topLevelComments += allText;
 
    const commentsHTML = document.getElementById("commentsMainContent");
-   commentsHTML.innerHTML = topLevelComments;
+   commentsHTML.innerHTML = allText;
 }
 
 

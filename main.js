@@ -27,10 +27,10 @@ async function createHTML(pageNumber) {
          const insideHTML = `
          <div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
             <div class="order-2 order-md-1 offset-1 offset-md-0 col-10 col-md-3 pt-2 pb-2 text-left">
-               <div class="col pl-0">
-                  <small><strong>${apiResponse["time_ago"]}</strong></small>
+               <div class="col pl-0 pb-2">
+                  <a href="https://news.ycombinator.com/item?id=${apiResponse["id"]}" class="txt-white"><small><strong>${apiResponse["time_ago"]}</strong></small></a>
                </div>
-               <div class="col pl-0 border-top">
+               <div class="col pl-0 pt-2 border-top">
                   <small><strong>${apiResponse["points"]}</strong> ⭐</small>
                </div>
             </div>
@@ -141,16 +141,16 @@ async function getCommentsJSON(event) {
 
 async function insertComments(event) {
    const apiResponse = await getCommentsJSON(event);
-   // const title = apiResponse["title"];
-   // const url = apiResponse["url"];
-   // const commentCount = apiResponse["comments_count"];
+
    const commentsObject = apiResponse["comments"];
+   console.log(commentsObject)
    let topLevelComments = "";
 
-   commentsObject.forEach(function (comment) {
-      const user = `${comment["user"]}`;
-      const time_ago = `🕔 ${comment["time_ago"]}`;
-      const commentContent = `${comment["content"]}`;
+   const allText = commentsObject.map(function (commentsObject) {
+
+      const user = `${commentsObject["user"]}`;
+      const time_ago = `🕔 ${commentsObject["time_ago"]}`;
+      const commentContent = `${commentsObject["content"]}`;
       const allText = `
       <div class="bg-dark-grey p-2 my-5">
          <p>${user} –– ${time_ago}</p>
@@ -158,16 +158,10 @@ async function insertComments(event) {
             ${commentContent}
          </div>
        </div>
-      `;
-      topLevelComments += allText;
-   })
-
-   // const titleHTML = document.getElementById("titleComments");
-   // titleHTML.innerText = title;
-   // titleHTML.setAttribute("href", url)
-
-   // const commentsCountHTML = document.getElementById("commentsCount");
-   // commentsCountHTML.innerText = `${commentCount} comments`;
+      `
+      return allText;
+   }).join(" ");
+   topLevelComments += allText;
 
    const commentsHTML = document.getElementById("commentsMainContent");
    commentsHTML.innerHTML = topLevelComments;

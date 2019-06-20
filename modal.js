@@ -1,6 +1,16 @@
+function escapeModal() {
+	const currentVisibility = document.getElementById("modal").classList;
+	document.addEventListener("keydown", function (e) {
+		if (e.key === "Escape" && currentVisibility.contains("d-none") == false) {
+			toggleModal();
+		}
+	})
+}
+
 function attachModalListeners() {
 	document.getElementById("close_modal").addEventListener("click", toggleModal);
 	document.getElementById("overlay").addEventListener("click", toggleModal);
+	escapeModal();
 }
 
 function detachModalListeners() {

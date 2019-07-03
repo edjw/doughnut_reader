@@ -27,9 +27,9 @@ async function createHTML(pageNumber) {
          let commentsButton = `<p class="txt-grey py-1 mb-0">No comments</p>`;
          if (apiResponse["comments_count"] > 0) {
             // commentsButton = `<button class="modal_opener btn btn-link bg-light-grey txt-white pl-0" id="${apiResponse["id"]}">See ${apiResponse["comments_count"]} Comments</button>`;
-         }
          
-         commentsButton = `<a class="modal_opener btn btn-link bg-light-grey txt-white pl-0" id="${apiResponse["id"]}" href="https://news.ycombinator.com/item?id=${apiResponse["id"]}">See ${apiResponse["comments_count"]} Comments</button>`;
+         
+         commentsButton = `<a class="modal_opener btn btn-link bg-light-grey txt-white pl-0" id="${apiResponse["id"]}" href="https://news.ycombinator.com/item?id=${apiResponse["id"]}">See ${apiResponse["comments_count"]} Comments</a>`;
          }
 
          let score = `0`;

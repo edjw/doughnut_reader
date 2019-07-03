@@ -26,7 +26,10 @@ async function createHTML(pageNumber) {
 
          let commentsButton = `<p class="txt-grey py-1 mb-0">No comments</p>`;
          if (apiResponse["comments_count"] > 0) {
-            commentsButton = `<button class="modal_opener btn btn-link bg-light-grey txt-white pl-0" id="${apiResponse["id"]}">See ${apiResponse["comments_count"]} Comments</button>`;
+            // commentsButton = `<button class="modal_opener btn btn-link bg-light-grey txt-white pl-0" id="${apiResponse["id"]}">See ${apiResponse["comments_count"]} Comments</button>`;
+         }
+         
+         commentsButton = `<a class="modal_opener btn btn-link bg-light-grey txt-white pl-0" id="${apiResponse["id"]}" href="https://news.ycombinator.com/item?id=${apiResponse["id"]}">See ${apiResponse["comments_count"]} Comments</button>`;
          }
 
          let score = `0`;
@@ -57,9 +60,9 @@ async function createHTML(pageNumber) {
                </small>
                <br>
 
-            <!--   <div class="mt-2">
+             <div class="mt-2">
                   ${commentsButton}
-               </div> -->
+               </div> 
 
             </div>
 

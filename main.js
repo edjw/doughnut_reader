@@ -57,9 +57,9 @@ async function createHTML(pageNumber) {
                </small>
                <br>
 
-               <div class="mt-2">
+            <!--   <div class="mt-2">
                   ${commentsButton}
-               </div>
+               </div> -->
 
             </div>
 

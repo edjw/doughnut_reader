@@ -30,7 +30,7 @@
 }
 
 .word-wrap {
-    word-wrap: break-word;
+    word-wrap: break-all;
 }
 
 a:hover, #more-stories:hover, #previous-stories:hover, .modal_opener:hover {

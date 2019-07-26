@@ -50,7 +50,7 @@ async function createHTML(pageNumber) {
             </div>
 
             <div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
-               <a href=${apiResponse["url"]} class="lead font-weight-bold text-decoration-none txt-white">
+               <a href=${apiResponse["url"]} class="lead font-weight-bold text-decoration-none word-wrap txt-white">
                   ${apiResponse["title"]}
                </a>
                <br>

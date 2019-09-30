@@ -26,10 +26,8 @@ async function createHTML(pageNumber) {
 
          let commentsButton = `<p class="txt-grey py-1 mb-0">No comments</p>`;
          if (apiResponse["comments_count"] > 0) {
-            // commentsButton = `<button class="modal_opener btn btn-link bg-light-grey txt-white pl-0" id="${apiResponse["id"]}">See ${apiResponse["comments_count"]} Comments</button>`;
-         
-         
-         commentsButton = `<a class="word-wrap btn btn-link bg-light-grey txt-white pl-0" id="${apiResponse["id"]}" href="https://news.ycombinator.com/item?id=${apiResponse["id"]}">See ${apiResponse["comments_count"]} Comments</a>`;
+
+            commentsButton = `<a class="word-wrap btn btn-link bg-light-grey txt-white pl-0" id="${apiResponse["id"]}" href="https://news.ycombinator.com/item?id=${apiResponse["id"]}">See ${apiResponse["comments_count"]} Comments</a>`;
          }
 
          let score = `0`;
@@ -37,6 +35,17 @@ async function createHTML(pageNumber) {
          if (apiResponse["points"] > 0) {
             score = apiResponse["points"];
          }
+
+
+         let itemUrl;
+
+         if (apiResponse["url"].startsWith("item?id=")){
+            itemUrl = `https://news.ycombinator.com/${apiResponse["url"]}`
+         }
+         else {
+            itemUrl = apiResponse["url"];
+         }
+
 
          const insideHTML = `
          <div class="row ml-md-5 mr-md-5 mb-4 rounded bg-light-grey">
@@ -50,19 +59,19 @@ async function createHTML(pageNumber) {
             </div>
 
             <div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
-               <a href=${apiResponse["url"]} class="lead font-weight-bold text-decoration-none word-wrap txt-white">
+               <a href=${itemUrl} class="lead font-weight-bold text-decoration-none txt-white">
                   ${apiResponse["title"]}
                </a>
                <br>
 
                <small>
-                  <a href="${apiResponse["url"]}" class="txt-grey word-wrap">${apiResponse["url"]}</a>
+                  <a href="${itemUrl}" class="txt-grey word-wrap">${itemUrl}</a>
                </small>
                <br>
 
              <div class="mt-2">
                   ${commentsButton}
-               </div> 
+               </div>
 
             </div>
 
@@ -80,6 +89,7 @@ async function insertHTML(pageNumber) {
    contentDiv.innerHTML = html;
    const modalButtons = Array.from(document.getElementsByClassName("modal_opener"));
    modalButtons.forEach(button => button.addEventListener("click", toggleModal_and_getComments));
+
 }
 
 function changePage() {
@@ -193,10 +203,3 @@ async function insertComments(event) {
    commentsHTML.innerHTML = allText;
 }
 
-
-// Print the API response
-// async function printJsonFromApi() {
-//    const promise = await getCommentsJSON(event);
-//    console.log(promise);
-// }
-// printJsonFromApi();

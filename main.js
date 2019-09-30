@@ -202,4 +202,3 @@ async function insertComments(event) {
    const commentsHTML = document.getElementById("commentsMainContent");
    commentsHTML.innerHTML = allText;
 }
-

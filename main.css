@@ -31,6 +31,7 @@
 
 .word-wrap {
     word-wrap: anywhere;
+    word-break: break-all;
 }
 
 a:hover, #more-stories:hover, #previous-stories:hover, .modal_opener:hover {

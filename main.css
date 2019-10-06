@@ -21,7 +21,8 @@
 	background-color: #303030;
 }
 
-.txt-white {
+.txt-white,
+.txt-white:hover {
 	color: #fbfbfb;
 }
 

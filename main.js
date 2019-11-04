@@ -107,10 +107,10 @@ async function insertHTML(pageNumber) {
 }
 
 function changePage() {
-   if (this.id == "more-stories") {
+   if (this.id == "more-stories" || event.key == "k") {
       pageNumber += 1;
    }
-   else {
+   else if (pageNumber > 1) {
       pageNumber -= 1;
    }
    insertHTML(pageNumber);
@@ -158,7 +158,11 @@ let pageNumber = 1;
 
 const allButtons = Array.from(document.getElementsByClassName("change-page-button"));
 allButtons.forEach(button => button.addEventListener("click", changePage));
-
+document.addEventListener("keydown", function (event) {
+   if (event.key === "j" || event.key === "k") {
+      changePage(event);
+   }
+})
 function showFullText(event) {
    event.preventDefault();
    toggleModal();

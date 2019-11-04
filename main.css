@@ -774,23 +774,16 @@ code {
 }
 
 #modal #close_modal {
-	position: absolute;
+	position: fixed;
 	right: 10px;
-	top: 10px;
+	bottom: 10px;
 	cursor: pointer;
-	font-size: 18px;
-	background-color: white;
-	color: black;
-	border: none;
-	padding: 10px 15px;
-}
-
-#modal #close_modal:hover {
-	opacity: 0.9;
+	padding: 10px 25px;
 }
 
 #fullTextContentContainer {
-    font-size: 18px;
+	font-size: 18px;
+	color: #fbfbfb;
 }
 
 #fullTextContentContainer img {

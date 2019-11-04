@@ -1,5 +1,6 @@
 [build]
-  base = "."
   functions = "./functions"
-  publish = "/"
   command = "cd functions_src && yarn install && cd .. && netlify-lambda build functions_src"
+
+[dev]
+ functions = "./functions_src"

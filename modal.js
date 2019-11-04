@@ -19,7 +19,7 @@ function detachModalListeners() {
 }
 
 function removeModalContent() {
-	const modalContent = document.getElementById("commentsMainContent");
+	const modalContent = document.getElementById("fullTextContentContainer");
 	modalContent.innerHTML = "";
 }
 

@@ -39,12 +39,22 @@ async function createHTML(pageNumber) {
 
          let itemUrl;
 
-         if (apiResponse["url"].startsWith("item?id=")){
+         if (apiResponse["url"].startsWith("item?id=")) {
             itemUrl = `https://news.ycombinator.com/${apiResponse["url"]}`
          }
          else {
             itemUrl = apiResponse["url"];
          }
+
+         let itemDomain;
+
+         if (apiResponse["domain"]) {
+            itemDomain = (apiResponse["domain"]);
+         }
+         else {
+            itemDomain = `news.ycombinator.com`;
+         }
+
 
 
          const insideHTML = `
@@ -59,13 +69,14 @@ async function createHTML(pageNumber) {
             </div>
 
             <div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
-               <a href=${itemUrl} class="lead font-weight-bold text-decoration-none txt-white">
+               <a href="${itemUrl}" class="lead font-weight-bold text-decoration-none txt-white full-text-link" data-url="${itemUrl}">
                   ${apiResponse["title"]}
                </a>
                <br>
-
-               <small>
-                  <a href="${itemUrl}" class="txt-grey word-wrap">${itemUrl}</a>
+               <small class="txt-grey word-wrap">
+                  <a href="${itemUrl}" class="txt-grey word-wrap">
+                     ${itemDomain}
+                  </a>
                </small>
                <br>
 
@@ -87,8 +98,11 @@ async function insertHTML(pageNumber) {
    const html = await createHTML(pageNumber);
    const contentDiv = document.getElementById("content");
    contentDiv.innerHTML = html;
-   const modalButtons = Array.from(document.getElementsByClassName("modal_opener"));
-   modalButtons.forEach(button => button.addEventListener("click", toggleModal_and_getComments));
+   // const modalButtons = Array.from(document.getElementsByClassName("modal_opener"));
+   // modalButtons.forEach(button => button.addEventListener("click", getComments));
+
+   const fullTextLinks = Array.from(document.getElementsByClassName("full-text-link"));
+   fullTextLinks.forEach(button => button.addEventListener("click", showFullText));
 
 }
 
@@ -139,66 +153,127 @@ window.addEventListener("load", function () {
    footer.classList.remove("d-none");
 })
 
-
-
 // Page number state
 let pageNumber = 1;
 
 const allButtons = Array.from(document.getElementsByClassName("change-page-button"));
 allButtons.forEach(button => button.addEventListener("click", changePage));
 
-
-// Fetching comments for modals
-function toggleModal_and_getComments(event) {
+function showFullText(event) {
+   event.preventDefault();
    toggleModal();
-   insertComments(event);
-}
-async function getCommentsJSON(event) {
-   const id = event.target.id;
-   const commentsURL = `https://api.hackerwebapp.com/item/${id}`
-   return await convertApiResponseToJSON(commentsURL)
+   const articleURL = event.srcElement.dataset.url;
+   insertFullText(articleURL);
 }
 
-async function insertComments(event) {
-   const apiResponse = await getCommentsJSON(event);
+async function fetchFullText(articleURL, url = `/.netlify/functions/extract_content?qs=${articleURL}`) {
+   return await convertApiResponseToJSON(url);
+}
 
-   const currentCommentLevel = 0
-   function findAllComments() {
-      if (apiResponse["comments"]) {
-         const commentsObject = apiResponse["comments"];
-      }
+async function insertFullText(articleURL) {
+   const apiResponse = await fetchFullText(articleURL);
+   console.log(apiResponse);
+
+   let title;
+   if (apiResponse['title']) {
+      title = (apiResponse['title']);
    }
 
+   let author;
+   if (apiResponse['author']) {
+      author = `<p>${apiResponse['author']}</p>`;
+   } else {
+      author = "";
+   }
 
-   const allText = commentsObject.map(function (commentObject) {
-      // console.log(commentObject)
+   let content;
+   if (apiResponse['content']) {
+      content = apiResponse['content'];
+   }
+   let articleUrl = apiResponse['url'];
 
-      const user = `${commentObject["user"]}`;
-      const time_ago = `🕔 ${commentObject["time_ago"]}`;
-      const commentContent = `${commentObject["content"]}`;
-      const level = `${commentObject["level"]}`;
+   let dateOptions = {
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+   };
+   let datePublished = new Date(apiResponse['date_published']).toLocaleString('en-gb', dateOptions);
 
-      // console.log(commentObject["comments"].length)
+   // let image;
+   // if (apiResponse['lead_image_url']) {
+   //    image = apiResponse['lead_image_url'];
+   // }
 
-      if (commentObject["comments"].length > 0) {
-         const lowerComments = commentObject["comments"].map(function (lowerComment) {
-            console.log(lowerComment);
-            // return lowerComments;
-         }).join(" ");
-      }
+   const fullTextHTML = `
 
+   <a href="${articleUrl}" class="text-decoration-none">
+		<h1 class="txt-white">${title}</h1>
+   </a>
 
-      const allText = `
-      <div class="bg-dark-grey p-2 my-5 level-${level}">
-         <p>${user} –– ${time_ago}</p>
-         <div class="bg-light-grey p-4">
-            ${commentContent}
-         </div>
-       </div>
-      `
-      return allText;
-   }).join(" ");
+   <p>${datePublished}</p>
+   ${author}
+   ${content}
 
-   const commentsHTML = document.getElementById("commentsMainContent");
-   commentsHTML.innerHTML = allText;
+   `
+   const fullTextContainer = document.getElementById("fullTextContentContainer");
+   fullTextContainer.innerHTML = fullTextHTML;
+
 }
+
+// Fetching comments for modals
+// function getComments(event) {
+//    toggleModal();
+//    insertComments(event);
+// }
+// async function getCommentsJSON(event) {
+//    const id = event.target.id;
+//    const commentsURL = `https://api.hackerwebapp.com/item/${id}`
+//    return await convertApiResponseToJSON(commentsURL)
+// }
+
+// async function insertComments(event) {
+//    const apiResponse = await getCommentsJSON(event);
+
+//    const currentCommentLevel = 0
+//    function findAllComments() {
+//       if (apiResponse["comments"]) {
+//          const commentsObject = apiResponse["comments"];
+//       }
+//    }
+
+
+//    const allText = commentsObject.map(function (commentObject) {
+//       // console.log(commentObject)
+
+//       const user = `${commentObject["user"]}`;
+//       const time_ago = `🕔 ${commentObject["time_ago"]}`;
+//       const commentContent = `${commentObject["content"]}`;
+//       const level = `${commentObject["level"]}`;
+
+//       // console.log(commentObject["comments"].length)
+
+//       if (commentObject["comments"].length > 0) {
+//          const lowerComments = commentObject["comments"].map(function (lowerComment) {
+//             console.log(lowerComment);
+//             // return lowerComments;
+//          }).join(" ");
+//       }
+
+
+//       const allText = `
+//       <div class="bg-dark-grey p-2 my-5 level-${level}">
+//          <p>${user} –– ${time_ago}</p>
+//          <div class="bg-light-grey p-4">
+//             ${commentContent}
+//          </div>
+//        </div>
+//       `
+//       return allText;
+//    }).join(" ");
+
+//    const commentsHTML = document.getElementById("commentsMainContent");
+//    commentsHTML.innerHTML = allText;
+// }

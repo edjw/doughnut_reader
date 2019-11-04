@@ -5,6 +5,9 @@
   "author": "Ed Johnson-Williams",
   "license": "MIT",
   "dependencies": {
-    "eslint": "^5.16.0"
+    "@postlight/mercury-parser": "^2.2.0",
+    "bcryptjs": "^2.4.3",
+    "eslint": "^5.16.0",
+    "request": "^2.88.0"
   }
 }

@@ -6,7 +6,7 @@
 			"src": "/favicon.png",
 			"sizes": "252x252",
 			"type": "image/png"
-		},
+		}
 	],
 	"theme_color": "#ffffff",
 	"background_color": "#262626",

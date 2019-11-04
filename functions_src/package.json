@@ -2,7 +2,8 @@
 	"name": "functions",
 	"description": "netlify function example",
 	"dependencies": {
-		"@postlight/mercury-parser": "^2.2.0"
+		"@postlight/mercury-parser": "^2.2.0",
+		"request": "^2.88.0"
 	},
 	"private": true
 }

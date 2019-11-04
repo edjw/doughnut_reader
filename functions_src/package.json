@@ -1,0 +1,8 @@
+{
+	"name": "functions",
+	"description": "netlify function example",
+	"dependencies": {
+		"@postlight/mercury-parser": "^2.2.0"
+	},
+	"private": true
+}

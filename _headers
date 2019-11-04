@@ -3,5 +3,5 @@
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
   Referrer-Policy: same-origin
-  Content-Security-Policy: default-src 'self'; connect-src https://api.hackerwebapp.com; img-src 'self' data: https://*.cloudfront.net; script-src 'self' ; style-src 'self' 'unsafe-inline' https://stackpath.bootstrapcdn.com ;
+  Content-Security-Policy: default-src 'self'; connect-src 'self' https://api.hackerwebapp.com; img-src 'self' data: https://*.cloudfront.net; script-src 'self' ; style-src 'self' 'unsafe-inline' https://stackpath.bootstrapcdn.com ;
 

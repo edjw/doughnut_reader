@@ -172,7 +172,6 @@ async function fetchFullText(articleURL, url = `/.netlify/functions/extract_cont
 
 async function insertFullText(articleURL) {
    const apiResponse = await fetchFullText(articleURL);
-   console.log(apiResponse);
 
    let title;
    if (apiResponse['title']) {

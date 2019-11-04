@@ -1,17 +1,16 @@
 'use strict';
 
 const Mercury = require('@postlight/mercury-parser');
-// const bcrypt = require('bcryptjs');
 
 exports.handler = async (event, context) => {
-	const requestFromURL = event['headers']['host'];
+	const referer = event.headers.referer;
+	const requestFromURL = referer.substring(0, referer.length - 1);
 	const mySite = process.env.URL;
-	const mySiteHost = mySite.split("://")[1];
 
-	if (requestFromURL != mySiteHost) {
+	if (requestFromURL != mySite) {
 		return {
 			statusCode: 403,
-			body: JSON.stringify({ error: "Don't use my functions, please" }),
+			body: JSON.stringify({ error: "Don't use my functions, please" })
 		};
 	}
 

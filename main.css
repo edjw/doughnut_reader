@@ -782,11 +782,15 @@ code {
 	background-color: white;
 	color: black;
 	border: none;
-	padding: 5px 10px;
+	padding: 10px 15px;
 }
 
 #modal #close_modal:hover {
 	opacity: 0.9;
+}
+
+#fullTextContentContainer {
+    font-size: 1rem;
 }
 
 #fullTextContentContainer img {

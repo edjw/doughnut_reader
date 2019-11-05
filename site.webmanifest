@@ -1,7 +1,7 @@
 {
 	"name": "Doughnut Reader",
 	"short_name": "Doughnut Reader",
-	"theme_color": "#ffffff",
+	"theme_color": "#262626",
 	"background_color": "#262626",
 	"display": "fullscreen",
 	"scope": "/",

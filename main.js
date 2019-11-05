@@ -1,11 +1,8 @@
-if ('serviceWorker' in navigator) {
-
-   // register service worker
-   navigator.serviceWorker.register('/service-worker.js');
-
-}
-
 /* eslint-disable no-console */
+
+if ('serviceWorker' in navigator) {
+   navigator.serviceWorker.register("/service-worker.js");
+}
 
 async function convertApiResponseToJSON(url) {
    try {

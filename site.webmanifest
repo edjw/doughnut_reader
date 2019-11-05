@@ -3,7 +3,7 @@
 	"short_name": "Doughnut Reader",
 	"theme_color": "#ffffff",
 	"background_color": "#262626",
-	"display": "standalone",
+	"display": "fullscreen",
 	"scope": "/",
 	"start_url": "/",
 	"icons": [

@@ -114,7 +114,7 @@ function changePage() {
    const contentDiv = document.getElementById("content");
    contentDiv.innerHTML = "";
 
-   if (this.id == "more-stories" || event.key == "j") {
+   if (this.id == "more-stories" || event.key === "j" || event.key === "ArrowRight") {
       pageNumber += 1;
    }
    else if (pageNumber > 1) {
@@ -166,7 +166,8 @@ let pageNumber = 1;
 const allButtons = Array.from(document.getElementsByClassName("change-page-button"));
 allButtons.forEach(button => button.addEventListener("click", changePage));
 document.addEventListener("keydown", function (event) {
-   if (event.key === "j" || event.key === "k") {
+
+   if (event.key === "j" || event.key === "k" || event.key === "ArrowLeft" || event.key === "ArrowRight") {
       changePage(event);
    }
 })

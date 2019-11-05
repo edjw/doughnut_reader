@@ -1,13 +1,13 @@
-# Doug<u>hn</u>ut Reader
+# Doughnut Reader
 
-[https://doughnut-reader.netlify.com](https://doughnut-reader.netlify.com)
+<https://doughnut-reader.netlify.com>
 
-A lightweight Hacker News Reader with a dark theme.
+Doug<u>hn</u>ut Reader is a lightweight Hacker News Reader with a dark theme.
 
-Completely with client-side Javascript
+Hacker News data comes through Lim Chee Aun's [Unofficial Hacker News API](https://github.com/cheeaun/node-hnapi).
 
-Built on top of Lim Chee Aun's [Unofficial Hacker News API](https://github.com/cheeaun/node-hnapi).
-
+Full text extraction uses Postlight's [Mercury Parser](https://github.com/postlight/mercury-parser) and a Netlify serverless function(https://www.netlify.com/products/functions).
 
 ## License
+
 Licensed under [the MIT License](https://choosealicense.com/licenses/mit).

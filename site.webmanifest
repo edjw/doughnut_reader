@@ -1,6 +1,7 @@
 {
 	"name": "Doughnut Reader",
 	"short_name": "Doughnut Reader",
+	"description":"A Hacker News Reader with a dark mode and full-text reading",
 	"theme_color": "#262626",
 	"background_color": "#262626",
 	"display": "fullscreen",

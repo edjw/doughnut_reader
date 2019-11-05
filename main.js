@@ -107,7 +107,7 @@ async function insertHTML(pageNumber) {
 }
 
 function changePage() {
-   if (this.id == "more-stories" || event.key == "k") {
+   if (this.id == "more-stories" || event.key == "j") {
       pageNumber += 1;
    }
    else if (pageNumber > 1) {

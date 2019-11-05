@@ -73,7 +73,7 @@ async function createHTML(pageNumber) {
             </div>
 
             <div class="order-1 order-md-2 offset-1 col-10 col-md-8 pt-2 pb-2">
-               <a href="${itemUrl}" class="lead font-weight-bold text-decoration-none txt-white full-text-link" data-url="${itemUrl}">
+               <a href="${itemUrl}" class="lead font-weight-bold txt-white full-text-link" data-url="${itemUrl}">
                   ${apiResponse["title"]}
                </a>
                <br>
@@ -216,14 +216,13 @@ async function insertFullText(articleURL) {
 
    const fullTextHTML = `
 
-   <a href="${articleUrl}" class="text-decoration-none">
+   <a href="${articleUrl}">
 		<h1 class="txt-white">${title}</h1>
    </a>
 
    <p>${datePublished}</p>
    ${author}
    ${content}
-
    `
    const fullTextContainer = document.getElementById("fullTextContentContainer");
    fullTextContainer.innerHTML = fullTextHTML;

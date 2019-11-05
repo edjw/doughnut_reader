@@ -1,7 +1,7 @@
 function escapeModal() {
-	const currentVisibility = document.getElementById("modal").classList;
+	const currentModalVisibility = document.getElementById("modal").classList;
 	document.addEventListener("keydown", function (event) {
-		if (event.key === "Escape" && currentVisibility.contains("d-none") == false) {
+		if (event.key === "Escape" && currentModalVisibility.contains("d-none") == false) {
 			toggleModal();
 		}
 	})
@@ -23,19 +23,36 @@ function removeModalContent() {
 	modalContent.innerHTML = "";
 }
 
-function toggleModal() {
+function saveStartingScrollHeight() {
+	const startingScrollHeight = window.pageYOffset;
+	const main = document.getElementById("main");
+	main.dataset.scrollHeight = startingScrollHeight;
+}
 
-	const currentVisibility = document.getElementById("modal").classList;
+function revertToStartingScrollHeight() {
+	const main = document.getElementById("main");
+	const startingScrollHeight = main.dataset.scrollHeight;
+	window.scrollTo(0, startingScrollHeight);
+	delete main.dataset.scrollHeight;
+}
+
+
+function toggleModal() {
+	const currentModalVisibility = document.getElementById("modal").classList;
 	const mainLayerClasses = document.getElementById("main").classList;
 
-	if (currentVisibility.contains("d-none")) {
-		currentVisibility.remove("d-none");
+	if (currentModalVisibility.contains("d-none")) {
+		saveStartingScrollHeight();
+		currentModalVisibility.remove("d-none");
 		mainLayerClasses.add("position-fixed")
+		currentModalVisibility.add("open");
 		attachModalListeners();
 		removeModalContent();
 	}
 	else {
-		currentVisibility.add("d-none");
+		revertToStartingScrollHeight();
+		currentModalVisibility.add("d-none");
+		currentModalVisibility.remove("open");
 		mainLayerClasses.remove("position-fixed")
 		detachModalListeners();
 	}

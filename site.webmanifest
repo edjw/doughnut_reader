@@ -1,14 +1,15 @@
 {
 	"name": "Doughnut Reader",
-	"short_name": "",
+	"short_name": "HN",
 	"icons": [
 		{
-			"src": "/favicon.png",
+			"src": "images/favicons/favicon.png",
 			"sizes": "252x252",
 			"type": "image/png"
 		}
 	],
+	"start_url": "https://doughnut-reader.netlify.com",
+	"display": "standalone",
 	"theme_color": "#ffffff",
-	"background_color": "#262626",
-	"display": "standalone"
+	"background_color": "#262626"
 }

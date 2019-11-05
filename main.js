@@ -111,6 +111,9 @@ async function insertHTML(pageNumber) {
 }
 
 function changePage() {
+   const contentDiv = document.getElementById("content");
+   contentDiv.innerHTML = "";
+
    if (this.id == "more-stories" || event.key == "j") {
       pageNumber += 1;
    }

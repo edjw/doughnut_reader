@@ -791,4 +791,8 @@ code {
 	height: auto
 }
 
+#fullTextContentContainer iframe {
+    max-width: 100%;
+}
+
 /* End modal styles */

@@ -12,7 +12,7 @@ async function convertApiResponseToJSON(url) {
    }
 }
 
-async function getApiResponse(pageNumber, url = `https://api.hackerwebapp.com/news?page=${pageNumber}`) {
+async function getApiResponse(pageNumber, url = `https://node-hnapi.herokuapp.com/news?page=${pageNumber}`) {
    return await convertApiResponseToJSON(url);
 }
 

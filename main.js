@@ -211,7 +211,11 @@ async function insertFullText(articleURL) {
       hour: '2-digit',
       minute: '2-digit'
    };
-   let datePublished = new Date(apiResponse['date_published']).toLocaleString('en-gb', dateOptions);
+
+   let datePublished = "";
+   if (new Date(apiResponse['date_published']) > 0) {
+      datePublished = new Date(apiResponse['date_published']).toLocaleString('en-gb', dateOptions);
+   }
 
    // let image;
    // if (apiResponse['lead_image_url']) {

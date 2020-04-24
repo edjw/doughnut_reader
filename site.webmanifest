@@ -6,7 +6,7 @@
 	"background_color": "#262626",
 	"display": "fullscreen",
 	"scope": "/",
-	"start_url": "/",
+	"start_url": "https://doughnut-reader.netlify.app",
 	"icons": [
 		{
 			"src": "/images/favicons/android-chrome-192x192.png",

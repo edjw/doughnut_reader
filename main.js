@@ -105,8 +105,8 @@ async function insertHTML(pageNumber) {
    // const modalButtons = Array.from(document.getElementsByClassName("modal_opener"));
    // modalButtons.forEach(button => button.addEventListener("click", getComments));
 
-   const fullTextLinks = Array.from(document.getElementsByClassName("full-text-link"));
-   fullTextLinks.forEach(button => button.addEventListener("click", showFullText));
+//    const fullTextLinks = Array.from(document.getElementsByClassName("full-text-link"));
+//    fullTextLinks.forEach(button => button.addEventListener("click", showFullText));
 
 }
 
